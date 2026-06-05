@@ -2,103 +2,28 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "AgentFlow Nebula Database Schema",
   "version": "2.0.0",
-  "description": "Describes every CSV table in /database. CSV tables are the single source of truth for structured (tabular) data. Narrative content (identities, instructions, workflows) lives in markdown files and is referenced from these tables via *-file / *-folder / *-ref columns. Conversely, instruction/instruction.md tells each persona which tables to read.",
+  "description": "Describes every CSV table in /database. CSV tables are the single source of truth for structured (tabular) data. Narrative content (identities, instructions, workflows) lives in markdown files and is referenced from these tables via File / Folder / Ref columns. Conversely, instruction/instruction.md tells each persona which tables to read.",
   "conventions": {
     "format": "CSV with a header row; UTF-8; comma-separated",
-    "ids": "All *-id columns are kebab-case, lowercase, no spaces, unique within their table",
+    "column-headers": "Title Case With Spaces - every word capitalized, separated by single spaces (e.g. 'Assignee Persona Id'). Header text only.",
+    "id-values": "Cell values in '* Id' columns are kebab-case, lowercase, no spaces, unique within their table",
     "dates": "ISO 8601 (YYYY-MM-DD)",
-    "file-refs": "Columns ending in -file, -folder, or -ref hold workspace-relative paths to markdown files or folders"
+    "file-refs": "Columns whose header ends in 'File', 'Folder', or 'Ref' hold workspace-relative paths to markdown files or folders"
   },
   "tables": {
-    "config/config.csv": {
-      "purpose": "Application and project-level key/value configuration written by setup",
-      "columns": ["property", "value"],
-      "primary-key": "property"
-    },
-    "config/persona-status.csv": {
-      "purpose": "Enumeration of allowed persona statuses",
-      "columns": ["status", "description"],
-      "primary-key": "status"
-    },
-    "config/task-status.csv": {
-      "purpose": "Enumeration of allowed task statuses and their order",
-      "columns": ["status", "sort-order", "description"],
-      "primary-key": "status"
-    },
-    "config/day-of-week.csv": {
-      "purpose": "Calendar lookup for day names",
-      "columns": ["day-no", "day-of-week", "short"],
-      "primary-key": "day-no"
-    },
-    "config/month.csv": {
-      "purpose": "Calendar lookup for month names",
-      "columns": ["month-no", "month", "short"],
-      "primary-key": "month-no"
-    },
-    "persona/team.csv": {
-      "purpose": "Functional tiers that group personas",
-      "columns": ["team-id", "team", "tier-order", "description"],
-      "primary-key": "team-id",
-      "values": ["tier-0", "c-level", "revenue", "production"]
-    },
-    "persona/role.csv": {
-      "purpose": "Roles a persona can hold; each role belongs to one team",
-      "columns": ["role-id", "role", "team-id", "description"],
-      "primary-key": "role-id",
-      "foreign-keys": {"team-id": "persona/team.csv#team-id"}
-    },
-    "persona/persona.csv": {
-      "purpose": "The roster of personas (single source of truth for who exists)",
-      "columns": ["persona-id", "persona-name", "role-id", "team-id", "status", "persona-file"],
-      "primary-key": "persona-id",
-      "foreign-keys": {
-        "role-id": "persona/role.csv#role-id",
-        "team-id": "persona/team.csv#team-id",
-        "status": "config/persona-status.csv#status"
-      },
-      "file-ref": "persona-file -> /persona/<team-id>/<persona-id>/<persona-id>.md"
-    },
-    "project/project.csv": {
-      "purpose": "Projects under management",
-      "columns": ["project-id", "project-name", "status", "owner-persona-id", "start-date", "description", "project-folder"],
-      "primary-key": "project-id",
-      "foreign-keys": {"owner-persona-id": "persona/persona.csv#persona-id"},
-      "file-ref": "project-folder -> /project/<project-id>/"
-    },
-    "project/phase.csv": {
-      "purpose": "Phases that decompose a project",
-      "columns": ["phase-id", "project-id", "phase-no", "phase-name", "status", "description"],
-      "primary-key": "phase-id",
-      "foreign-keys": {"project-id": "project/project.csv#project-id"}
-    },
-    "project/task-plan.csv": {
-      "purpose": "Reusable task templates keyed by role and phase (planning library)",
-      "columns": ["task-plan-id", "role-id", "phase-name", "task-name", "description"],
-      "primary-key": "task-plan-id",
-      "foreign-keys": {"role-id": "persona/role.csv#role-id"}
-    },
-    "project/task.csv": {
-      "purpose": "Actual tasks assigned within a project",
-      "columns": ["task-id", "project-id", "phase-id", "task-name", "assignee-persona-id", "status", "planned-date", "due-date", "output-ref", "notes"],
-      "primary-key": "task-id",
-      "foreign-keys": {
-        "project-id": "project/project.csv#project-id",
-        "phase-id": "project/phase.csv#phase-id",
-        "assignee-persona-id": "persona/persona.csv#persona-id",
-        "status": "config/task-status.csv#status"
-      },
-      "file-ref": "output-ref -> deliverable file or folder produced by the task"
-    },
-    "prompt-helper/prompt-helper.csv": {
-      "purpose": "Reusable prompt snippets / trigger phrases",
-      "columns": ["helper-id", "name", "category", "prompt"],
-      "primary-key": "helper-id"
-    },
-    "workflow/scheduled-task.csv": {
-      "purpose": "Recurring jobs run by a persona on a cron schedule",
-      "columns": ["schedule-id", "name", "persona-id", "cron", "action", "status"],
-      "primary-key": "schedule-id",
-      "foreign-keys": {"persona-id": "persona/persona.csv#persona-id"}
-    }
+    "config/config.csv": {"purpose": "Application and project-level key/value configuration written by setup", "columns": ["Property", "Value"], "primary-key": "Property"},
+    "config/persona-status.csv": {"purpose": "Enumeration of allowed persona statuses", "columns": ["Status", "Description"], "primary-key": "Status"},
+    "config/task-status.csv": {"purpose": "Enumeration of allowed task statuses and their order", "columns": ["Status", "Sort Order", "Description"], "primary-key": "Status"},
+    "config/day-of-week.csv": {"purpose": "Calendar lookup for day names", "columns": ["Day No", "Day Of Week", "Short"], "primary-key": "Day No"},
+    "config/month.csv": {"purpose": "Calendar lookup for month names", "columns": ["Month No", "Month", "Short"], "primary-key": "Month No"},
+    "persona/team.csv": {"purpose": "Functional tiers that group personas", "columns": ["Team Id", "Team", "Tier Order", "Description"], "primary-key": "Team Id"},
+    "persona/role.csv": {"purpose": "Roles a persona can hold; each role belongs to one team", "columns": ["Role Id", "Role", "Team Id", "Description"], "primary-key": "Role Id", "foreign-keys": {"Team Id": "persona/team.csv#Team Id"}},
+    "persona/persona.csv": {"purpose": "The roster of personas (single source of truth for who exists)", "columns": ["Persona Id", "Persona Name", "Role Id", "Team Id", "Status", "Persona File"], "primary-key": "Persona Id", "foreign-keys": {"Role Id": "persona/role.csv#Role Id", "Team Id": "persona/team.csv#Team Id", "Status": "config/persona-status.csv#Status"}, "file-ref": "Persona File -> /persona/<team-id>/<persona-id>/<persona-id>.md"},
+    "project/project.csv": {"purpose": "Projects under management", "columns": ["Project Id", "Project Name", "Status", "Owner Persona Id", "Start Date", "Description", "Project Folder"], "primary-key": "Project Id", "foreign-keys": {"Owner Persona Id": "persona/persona.csv#Persona Id"}, "file-ref": "Project Folder -> /project/<project-id>/"},
+    "project/phase.csv": {"purpose": "Phases that decompose a project", "columns": ["Phase Id", "Project Id", "Phase No", "Phase Name", "Status", "Description"], "primary-key": "Phase Id", "foreign-keys": {"Project Id": "project/project.csv#Project Id"}},
+    "project/task-plan.csv": {"purpose": "Reusable task templates keyed by role and phase (planning library)", "columns": ["Task Plan Id", "Role Id", "Phase Name", "Task Name", "Description"], "primary-key": "Task Plan Id", "foreign-keys": {"Role Id": "persona/role.csv#Role Id"}},
+    "project/task.csv": {"purpose": "Actual tasks assigned within a project", "columns": ["Task Id", "Project Id", "Phase Id", "Task Name", "Assignee Persona Id", "Status", "Planned Date", "Due Date", "Output Ref", "Notes"], "primary-key": "Task Id", "foreign-keys": {"Project Id": "project/project.csv#Project Id", "Phase Id": "project/phase.csv#Phase Id", "Assignee Persona Id": "persona/persona.csv#Persona Id", "Status": "config/task-status.csv#Status"}, "file-ref": "Output Ref -> deliverable file or folder produced by the task"},
+    "prompt-helper/prompt-helper.csv": {"purpose": "Reusable prompt snippets / trigger phrases", "columns": ["Helper Id", "Name", "Category", "Prompt"], "primary-key": "Helper Id"},
+    "workflow/scheduled-task.csv": {"purpose": "Recurring jobs run by a persona on a cron schedule", "columns": ["Schedule Id", "Name", "Persona Id", "Cron", "Action", "Status"], "primary-key": "Schedule Id", "foreign-keys": {"Persona Id": "persona/persona.csv#Persona Id"}}
   }
 }

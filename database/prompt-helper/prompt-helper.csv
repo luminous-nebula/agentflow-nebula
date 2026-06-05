@@ -1,4 +1,4 @@
-helper-id,name,category,prompt
+Helper Id,Name,Category,Prompt
 ph-001,daily-housekeeping,housekeeping,Run Housekeeping - scan the workspace for misplaced or misnamed files and propose an archive or move list then await approval
 ph-002,consolidate-reports,reporting,Consolidate Reports - locate recent persona outputs in output/report and synthesize a master markdown summary
 ph-003,task-status-update,project,Summarize database/project/task.csv grouped by status for the active project

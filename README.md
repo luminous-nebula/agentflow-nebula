@@ -34,11 +34,12 @@ Setup asks for the project name and source-code path, writes
 ## Core concepts
 
 - **Single source of truth.** Tabular data lives in CSV; narrative lives in markdown.
-  They cross-reference (via `*-file` / `*-folder` / `*-ref` columns), never duplicate.
+  They cross-reference (via columns ending in `File` / `Folder` / `Ref`), never duplicate.
 - **Functional tiers.** Every persona belongs to one tier: `tier-0`, `c-level`,
   `revenue`, or `production`.
-- **One naming rule.** kebab-case, lowercase, no spaces — for files, folders, ids,
-  and columns. Dated files use `YYYY-MM-DD_<name>[-v<n>].<ext>`.
+- **One naming rule.** kebab-case, lowercase, no spaces — for files, folders, and
+  ids; CSV column headers use Title Case With Spaces. Dated files use
+  `YYYY-MM-DD_<name>[-v<n>].<ext>`.
   See `instruction/naming-convention.md`.
 - **Non-destructive.** Nothing is deleted; superseded files move to `output/archive/`.
 

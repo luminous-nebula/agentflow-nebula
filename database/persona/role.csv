@@ -1,4 +1,4 @@
-role-id,role,team-id,description
+Role Id,Role,Team Id,Description
 orchestrator,Chief Orchestration & Housekeeping,tier-0,Maintains structure hygiene report consolidation and archiving
 ceo,Chief Executive Officer,c-level,Sets vision strategy and final decisions
 cfo,Chief Financial Officer,c-level,Financial planning cash-flow modeling and budgeting

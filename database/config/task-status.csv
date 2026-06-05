@@ -1,4 +1,4 @@
-status,sort-order,description
+Status,Sort Order,Description
 backlog,1,Identified but not yet scheduled
 planned,2,Scheduled into a phase
 in-progress,3,Actively being worked on

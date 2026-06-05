@@ -35,7 +35,7 @@ Every fact lives in exactly one place, chosen by its type:
 
 They **reference** each other instead of duplicating:
 
-- CSV rows point to files via `*-file` / `*-folder` / `*-ref` columns
+- CSV rows point to files via columns ending in `File` / `Folder` / `Ref`
   (e.g. `persona.csv` -> `persona-file` -> the persona's `.md`).
 - `instruction/instruction.md` names the tables each persona must read.
 
@@ -123,7 +123,7 @@ persona's identity/prompt; its row in `persona.csv` is the structured record.
 **kebab-case, lowercase, no spaces** — everywhere. Full rules in
 `instruction/naming-convention.md`. Highlights:
 
-- Folders, files, ids, and column headers: `kebab-case`.
+- Folders, files, and ids: `kebab-case`. CSV column headers: `Title Case With Spaces`.
 - Personas: `<name>-nebula`. Projects: a kebab slug like `luminous-forge`.
 - Dated deliverables: `YYYY-MM-DD_<kebab-name>[-v<n>].<ext>`
   e.g. `2026-06-01_cash-flow-model-v6.xlsx`.

@@ -1,4 +1,4 @@
-task-plan-id,role-id,phase-name,task-name,description
+Task Plan Id,Role Id,Phase Name,Task Name,Description
 tp-001,sales-lead,discovery,customer-discovery,Run customer discovery interviews and synthesize a playbook
 tp-002,cfo,financial-modeling,build-cash-flow-model,Construct a multi-week cash-flow projection model
 tp-003,orchestrator,housekeeping,consolidate-reports,Parse persona outputs into a master executive report
