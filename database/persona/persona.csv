@@ -1,0 +1,4 @@
+persona-id,persona-name,role-id,team-id,status,persona-file
+singularity-nebula,Singularity Nebula,orchestrator,tier-0,active,persona/tier-0/singularity-nebula/singularity-nebula.md
+giga-nebula,Giga Nebula,ceo,c-level,active,persona/c-level/giga-nebula/giga-nebula.md
+carina-nebula,Carina Nebula,cfo,c-level,active,persona/c-level/carina-nebula/carina-nebula.md

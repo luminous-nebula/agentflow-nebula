@@ -1,0 +1,3 @@
+status,description
+active,Persona is operational and may be assigned tasks
+inactive,Persona is disabled and excluded from assignment

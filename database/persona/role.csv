@@ -1,0 +1,9 @@
+role-id,role,team-id,description
+orchestrator,Chief Orchestration & Housekeeping,tier-0,Maintains structure hygiene report consolidation and archiving
+ceo,Chief Executive Officer,c-level,Sets vision strategy and final decisions
+cfo,Chief Financial Officer,c-level,Financial planning cash-flow modeling and budgeting
+marketing-lead,Marketing & Market Research,revenue,Market research demand generation and campaigns
+brand-lead,Brand & Creative,revenue,Brand identity messaging and creative direction
+sales-lead,Sales & Growth,revenue,Sales pipeline growth and customer discovery
+engineering-lead,Software Engineering,production,Software design and development
+operations-lead,Architecture & Operations,production,System architecture QA and operations

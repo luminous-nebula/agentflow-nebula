@@ -1,0 +1,5 @@
+team-id,team,tier-order,description
+tier-0,Tier 0,0,Core orchestration architecture and housekeeping of the whole system
+c-level,C-Level,1,Executive leadership and financial planning
+revenue,Revenue,2,Marketing brand market-research PR sales and customer service
+production,Production,3,Engineering software-development QA and operations
