@@ -1,7 +1,6 @@
-Role Id,Role,Team Id,Description
+Role ID,Role,Team ID,Description
 orchestrator,Chief Orchestration & Housekeeping,tier-0,Maintains structure hygiene report consolidation and archiving
-ceo,Chief Executive Officer,c-level,Sets vision strategy and final decisions
-cfo,Chief Financial Officer,c-level,Financial planning cash-flow modeling and budgeting
+executive-consultant,Executive Business Consultant,executive,Independent strategy GTM financial planning and red-team advisory
 marketing-lead,Marketing & Market Research,revenue,Market research demand generation and campaigns
 brand-lead,Brand & Creative,revenue,Brand identity messaging and creative direction
 sales-lead,Sales & Growth,revenue,Sales pipeline growth and customer discovery

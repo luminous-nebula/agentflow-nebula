@@ -9,18 +9,19 @@ Use `-` to separate words. Use `_` only as documented below.
 
 **Exception — CSV column headers** use **Title Case With Spaces**: every word
 starts with a capital letter and words are separated by single spaces
-(e.g. `Assignee Persona Id`). This applies to the header row of CSV tables only;
-the *values* in `* Id` columns remain kebab-case.
+(e.g. `Assignee Persona ID`). This applies to the header row of CSV tables only;
+the *values* in `* ID` columns remain kebab-case. The term **ID** is always
+written with both letters capitalized (`ID`, never `Id`).
 
 | Item | Pattern | Example |
 |---|---|---|
-| Folder | `kebab-case` | `c-level`, `prompt-helper` |
+| Folder | `kebab-case` | `executive`, `prompt-helper` |
 | Persona id & folder | `<name>-nebula` | `carina-nebula` |
 | Persona file | `<persona-id>.md` | `carina-nebula.md` |
 | Project id & folder | `kebab-case` | `luminous-forge` |
 | Table (CSV) file | `kebab-case.csv` | `task-status.csv` |
-| **CSV column header** | **Title Case With Spaces** | **`Assignee Persona Id`** |
-| Id value (inside a cell) | `kebab-case` | `tier-0`, `ph-001` |
+| **CSV column header** | **Title Case With Spaces** | **`Assignee Persona ID`** |
+| ID value (inside a cell) | `kebab-case` | `tier-0`, `ph-001` |
 | Role / SKILL folder | `kebab-case` | `executive-consultant` |
 
 ## CSV column headers (Title Case With Spaces)
@@ -29,9 +30,9 @@ The meaning is unchanged from the kebab-case ids; only the header text differs:
 
 | Concept | Column header |
 |---|---|
-| persona-id | `Persona Id` |
-| assignee-persona-id | `Assignee Persona Id` |
-| team-id | `Team Id` |
+| persona-id | `Persona ID` |
+| assignee-persona-id | `Assignee Persona ID` |
+| team-id | `Team ID` |
 | sort-order | `Sort Order` |
 | output-ref | `Output Ref` |
 | persona-file | `Persona File` |
@@ -57,7 +58,20 @@ YYYY-MM-DD_<kebab-name>[-v<n>].<ext>
 Superseded files move to `output/archive/` keeping (or gaining) the `YYYY-MM-DD_`
 prefix of the date they were archived. Never delete.
 
-## Ids
-All `* Id` cell values are kebab-case and unique within their table. Short sequential
-ids use a prefix: `ph-001` (prompt-helper), `tp-001` (task-plan), `st-001`
-(scheduled-task), `t-001` (task), `<slug>` (project).
+## IDs
+Most `* ID` cell values are kebab-case and unique within their table. Short sequential
+ids use a prefix: `ph-001` (prompt-helper), `st-001` (scheduled-task).
+
+### Project, phase, and task IDs (uppercase running numbers)
+These three tables use fixed-width uppercase IDs — an exception to kebab-case — so a Task
+ID self-describes its phase and product:
+
+| Table | ID format | Example |
+|---|---|---|
+| Project (product) | `PD<NN>` | `PD02` |
+| Phase | `PH<NN>` | `PH04` |
+| Task | `PH<NN>-PD<NN>-T<NNNN>` | `PH04-PD02-T0001` |
+
+`<NN>` is a two-digit running number; `<NNNN>` a four-digit running number. Folder names
+derived from these IDs keep the same casing (e.g. `project/PD02/`). The `task-plan.csv`
+schedule references tasks by their `Task ID`.

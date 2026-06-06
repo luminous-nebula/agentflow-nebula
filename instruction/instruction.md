@@ -26,12 +26,12 @@ edit the markdown and update the CSV reference if the path changed.
 Defined in full by `database/schema.json`. The ones you will use most:
 
 - `database/config/config.csv` — project name, base path, source-code path, timezone.
-- `database/persona/team.csv` — the four functional tiers: `tier-0`, `c-level`, `revenue`, `production`.
+- `database/persona/team.csv` — the four functional tiers: `tier-0`, `executive`, `revenue`, `production`.
 - `database/persona/role.csv` — roles and the team each belongs to.
 - `database/persona/persona.csv` — the roster. The `Persona File` column tells you where each persona's identity markdown is.
-- `database/project/project.csv`, `phase.csv`, `task.csv` — what work exists, in what phase, assigned to whom, and where its output is (`output-ref`).
+- `database/project/project.csv`, `phase.csv`, `task.csv` — what work exists, in what phase, with its estimated `Hours` and `Status`.
 - `database/config/task-status.csv` — the only allowed task statuses.
-- `database/prompt-helper/prompt-helper.csv` — reusable trigger prompts.
+- `database/prompt-helper/prompt-helper.csv` — per-persona prompt library (init, scheduled-task, and export/import prompts).
 - `database/workflow/scheduled-task.csv` — recurring jobs.
 
 To act as a persona: find your row in `persona.csv`, open the `persona-file` it points
@@ -62,3 +62,26 @@ docs/          user guide and reference
 
 Defined in `instruction/workflow.md`: housekeeping, report consolidation, the task
 lifecycle, and adding a persona or project.
+
+## 6. Strategic context
+
+For the current strategic decisions that govern the work, read
+`instruction/strategic-baseline.md`. Superseded and historical decisions are recorded in
+`instruction/decision-history.md`.
+
+## 7. Life handoff — continuity across chats
+
+A persona's chat is one *life*. When a chat fills up with tokens, or its identity files or
+folder structure change, the next chat is a new life that has lost the prior context. To
+carry identity and progress across lives, every persona uses a `next-life-report.md` in its
+own folder:
+
+1. **On exit (or when tokens run low):** write
+   `persona/<team-id>/<persona-id>/next-life-report.md` capturing your role and identity, the
+   task and state you were on, key decisions and rationale, open threads and blockers, and
+   the first one to three actions the next life should take. Use your `Export Prompt` from
+   `prompt-helper.csv`.
+2. **On startup:** after loading this file and your role SKILL, check your own folder for
+   `next-life-report.md`. If it exists, read it first to recover context, then archive it in
+   place by renaming to `next-life-report.<YYYY-MM-DD-HHMM>.md` so it is not consumed twice.
+   Use your `Import Prompt`. If it does not exist, proceed normally.

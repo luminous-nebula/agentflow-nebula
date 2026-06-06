@@ -1,3 +1,3 @@
-Schedule Id,Name,Persona Id,Cron,Action,Status
-st-001,nightly-housekeeping,singularity-nebula,0 22 * * *,Run Housekeeping,inactive
-st-002,weekly-report-consolidation,singularity-nebula,0 17 * * 5,Consolidate Reports,inactive
+Schedule ID,Name,Persona ID,Cron,Action,Purpose/Description,Status
+st-001,nightly-housekeeping,singularity-nebula,0 22 * * *,Run Housekeeping,,inactive
+st-002,weekly-report-consolidation,singularity-nebula,0 17 * * 5,Consolidate Reports,,inactive
