@@ -14,4 +14,4 @@ Use when the production manager keeps the team's operating system running.
 - Surface blockers and conflicts to the founder. Do not write code, designs, or tests; do not reassign unilaterally.
 
 ## Tables read
-`project/task.csv`, `project/task-plan.csv`, `project/phase.csv`, `persona/persona.csv`, `config/task-status.csv`.
+`project/task.csv`, `project/phase.csv`, `persona/persona.csv`, `config/task-status.csv`.

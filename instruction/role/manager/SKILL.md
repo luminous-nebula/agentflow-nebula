@@ -18,5 +18,5 @@ Follow Workflow E in `instruction/workflow.md`: add the `project.csv` row, creat
 `project/<project-id>/project.md`, then phases and tasks.
 
 ## Tables read / written
-`project/project.csv`, `project/phase.csv`, `project/task.csv`, `project/task-plan.csv`,
+`project/project.csv`, `project/phase.csv`, `project/task.csv`,
 `config/task-status.csv`, `persona/persona.csv`.

@@ -55,7 +55,7 @@ agentflow-nebula/
 │   ├── schema.json            describes every table + relationships
 │   ├── config/                config.csv + enums + calendar lookups
 │   ├── persona/               team.csv, role.csv, persona.csv
-│   ├── project/               project.csv, phase.csv, task-plan.csv, task.csv
+│   ├── project/               project.csv, phase.csv, task.csv
 │   ├── prompt-helper/         reusable prompts
 │   └── workflow/              scheduled-task.csv
 ├── instruction/               NARRATIVE source of truth (markdown)
@@ -92,7 +92,6 @@ Full definitions are in `database/schema.json`. Summary:
 | `persona/persona.csv` | the roster; links to each persona's md | persona-id |
 | `project/project.csv` | projects | project-id |
 | `project/phase.csv` | phases per project | phase-id |
-| `project/task-plan.csv` | reusable task templates | task-plan-id |
 | `project/task.csv` | actual assigned tasks | task-id |
 | `prompt-helper/prompt-helper.csv` | reusable trigger prompts | helper-id |
 | `workflow/scheduled-task.csv` | recurring jobs | schedule-id |

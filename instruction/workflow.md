@@ -33,10 +33,9 @@ intentional exception to the kebab-case file rule in `naming-convention.md`. Whe
 report supersedes an earlier one, archive the old file to `output/archive/` (Workflow A).
 
 ## Workflow C — Task lifecycle
-1. Plan: add a row to `task.csv` with a new `Task ID` (`PH<NN>-PD<NN>-T<NNNN>`), plus its `Project ID`, `Phase ID`, a `Description`, and the `Auto` flag (see "Auto flag" below).
+1. Plan: add a row to `task.csv` with a new `Task ID` (`PH<NN>-PD<NN>-T<NNNN>`), plus its `Project ID`, `Phase ID`, a `Description`, its estimated `Hours`, and the `Auto` flag (see "Auto flag" below).
 2. Status flows through the values in `config/task-status.csv`: `backlog -> planned -> in-progress -> blocked? -> review -> done -> archived`.
-3. Schedule: allocate planned effort in `task-plan.csv` — one row per `Task ID` + `Date` + `Hours`. The `Hours` column in `task.csv` is the total of those day allocations.
-4. Only statuses listed in `task-status.csv` are valid.
+3. Only statuses listed in `task-status.csv` are valid.
 
 ### Auto flag
 The `Auto` column in `task.csv` marks whether a task can be executed by an AI persona.

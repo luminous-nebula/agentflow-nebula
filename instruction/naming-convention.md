@@ -73,5 +73,4 @@ ID self-describes its phase and product:
 | Task | `PH<NN>-PD<NN>-T<NNNN>` | `PH04-PD02-T0001` |
 
 `<NN>` is a two-digit running number; `<NNNN>` a four-digit running number. Folder names
-derived from these IDs keep the same casing (e.g. `project/PD02/`). The `task-plan.csv`
-schedule references tasks by their `Task ID`.
+derived from these IDs keep the same casing (e.g. `project/PD02/`).
