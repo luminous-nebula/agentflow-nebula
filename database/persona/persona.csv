@@ -2,3 +2,10 @@ Persona ID,Persona Name,Role ID,Team ID,Status,Persona File
 singularity-nebula,Singularity Nebula,orchestrator,tier-0,active,persona/tier-0/singularity-nebula/singularity-nebula.md
 giga-nebula,Giga Nebula,executive-consultant,executive,active,persona/executive/giga-nebula/giga-nebula.md
 carina-nebula,Carina Nebula,executive-consultant,executive,active,persona/executive/carina-nebula/carina-nebula.md
+vela-nebula,Vela Nebula,gtm-advisor,executive,active,persona/executive/vela-nebula/vela-nebula.md
+mensa-nebula,Mensa Nebula,engineering-manager,production,active,persona/production/mensa-nebula/mensa-nebula.md
+pictor-nebula,Pictor Nebula,product-designer,production,active,persona/production/pictor-nebula/pictor-nebula.md
+daedalus-nebula,Daedalus Nebula,software-engineer,production,active,persona/production/daedalus-nebula/daedalus-nebula.md
+doradus-nebula,Doradus Nebula,code-reviewer,production,active,persona/production/doradus-nebula/doradus-nebula.md
+quasar-nebula,Quasar Nebula,qa-engineer,production,active,persona/production/quasar-nebula/quasar-nebula.md
+quadrans-nebula,Quadrans Nebula,automation-engineer,production,active,persona/production/quadrans-nebula/quadrans-nebula.md

@@ -1,8 +1,13 @@
 Role ID,Role,Team ID,Description
 orchestrator,Chief Orchestration & Housekeeping,tier-0,Maintains structure hygiene report consolidation and archiving
 executive-consultant,Executive Business Consultant,executive,Independent strategy GTM financial planning and red-team advisory
+gtm-advisor,GTM & Demand-Validation Advisor,executive,Go-to-market positioning pricing channels and demand-validation experiments
 marketing-lead,Marketing & Market Research,revenue,Market research demand generation and campaigns
 brand-lead,Brand & Creative,revenue,Brand identity messaging and creative direction
 sales-lead,Sales & Growth,revenue,Sales pipeline growth and customer discovery
-engineering-lead,Software Engineering,production,Software design and development
-operations-lead,Architecture & Operations,production,System architecture QA and operations
+engineering-manager,Engineering Manager,production,Operational coordination cadence and handoff-chain health
+product-designer,UI/UX Designer,production,Interaction visual and design-system work for product surfaces
+software-engineer,Software Engineer,production,Translates specs into tested production code
+code-reviewer,Code Reviewer,production,Reviews pull requests for correctness security and maintainability
+qa-engineer,Functional & Exploratory QA,production,Test-plan design exploratory testing and release sign-off
+automation-engineer,Automation QA Engineer,production,Automated E2E integration and CI test infrastructure
