@@ -1,3 +1,29 @@
 Schedule ID,Name,Persona ID,Cron,Action,Purpose/Description,Status
-st-001,nightly-housekeeping,singularity-nebula,0 22 * * *,Run Housekeeping,,inactive
-st-002,weekly-report-consolidation,singularity-nebula,0 17 * * 5,Consolidate Reports,,inactive
+st-001,singularity-nightly-housekeeping,singularity-nebula,0 1 * * *,Run Housekeeping,"Nightly: scan the workspace for misplaced or misnamed files and propose an archive/move list per the naming convention.",inactive
+st-002,mensa-morning-standup-and-dispatch,mensa-nebula,0 1 * * 1-5,Morning Standup and Dispatch,"Daily: Start-of-day digest of previous reports, read task.csv, and assign tasks for production personas in project/dispatch.csv.",inactive
+st-003,pictor-morning-commit,pictor-nebula,15 2 * * 1-5,Morning Commit,"Commit to today's planned design work and surface blockers before the work cycles.",inactive
+st-004,daedalus-morning-commit,daedalus-nebula,30 2 * * 1-5,Morning Commit,"Commit to today's planned engineering work and surface blockers before the work cycles.",inactive
+st-005,doradus-morning-commit,doradus-nebula,45 2 * * 1-5,Morning Commit,"Commit to today's planned review work and surface blockers before the work cycles.",inactive
+st-006,quasar-morning-commit,quasar-nebula,0 3 * * 1-5,Morning Commit,"Commit to today's planned QA work and surface blockers before the work cycles.",inactive
+st-007,quadrans-morning-commit,quadrans-nebula,15 3 * * 1-5,Morning Commit,"Commit to today's planned automation work and surface blockers before the work cycles.",inactive
+st-008,pictor-cycle-1,pictor-nebula,0 6 * * 1-5,Work Cycle 1,"Execute the first block of today's committed work and write an execution report.",inactive
+st-009,daedalus-cycle-1,daedalus-nebula,20 6 * * 1-5,Work Cycle 1,"Execute the first block of today's committed work and write an execution report.",inactive
+st-010,doradus-cycle-1,doradus-nebula,40 6 * * 1-5,Work Cycle 1,"Execute the first block of today's committed work and write an execution report.",inactive
+st-011,quasar-cycle-1,quasar-nebula,0 7 * * 1-5,Work Cycle 1,"Execute the first block of today's committed work and write an execution report.",inactive
+st-012,quadrans-cycle-1,quadrans-nebula,20 7 * * 1-5,Work Cycle 1,"Execute the first block of today's committed work and write an execution report.",inactive
+st-013,pictor-cycle-2,pictor-nebula,0 10 * * 1-5,Work Cycle 2,"Execute the second block of today's committed work and write an execution report.",inactive
+st-014,daedalus-cycle-2,daedalus-nebula,20 10 * * 1-5,Work Cycle 2,"Execute the second block of today's committed work and write an execution report.",inactive
+st-015,doradus-cycle-2,doradus-nebula,40 10 * * 1-5,Work Cycle 2,"Execute the second block of today's committed work and write an execution report.",inactive
+st-016,quasar-cycle-2,quasar-nebula,0 11 * * 1-5,Work Cycle 2,"Execute the second block of today's committed work and write an execution report.",inactive
+st-017,quadrans-cycle-2,quadrans-nebula,20 11 * * 1-5,Work Cycle 2,"Execute the second block of today's committed work and write an execution report.",inactive
+st-018,pictor-cycle-3,pictor-nebula,0 14 * * 1-5,Work Cycle 3,"Execute the third block of today's committed work and write an execution report.",inactive
+st-019,daedalus-cycle-3,daedalus-nebula,20 14 * * 1-5,Work Cycle 3,"Execute the third block of today's committed work and write an execution report.",inactive
+st-020,doradus-cycle-3,doradus-nebula,40 14 * * 1-5,Work Cycle 3,"Execute the third block of today's committed work and write an execution report.",inactive
+st-021,quasar-cycle-3,quasar-nebula,0 15 * * 1-5,Work Cycle 3,"Execute the third block of today's committed work and write an execution report.",inactive
+st-022,quadrans-cycle-3,quadrans-nebula,20 15 * * 1-5,Work Cycle 3,"Execute the third block of today's committed work and write an execution report.",inactive
+st-023,mensa-daily-consolidate,mensa-nebula,0 16 * * 1-5,Consolidate Reports,"End-of-day: synthesize the team's execution reports into a progress digest.",inactive
+st-024,mensa-weekly-status-aggregator,mensa-nebula,30 16 * * 5,Aggregate Status,"Weekly: aggregate completed work and update task statuses in task.csv.",inactive
+st-025,mensa-weekly-retrospective,mensa-nebula,45 16 * * 5,Weekly Retrospective,"Weekly retrospective: shipped vs planned, biggest slips, recurring patterns, and recommendations.",inactive
+st-026,carina-weekly-executive-review,carina-nebula,0 17 * * 5,Executive Review,"Weekly: review Mensa's reports from across the week, analyze them, and report status, situation, feedback, and recommendations to the founder as a new report.",inactive
+st-027,giga-weekly-strategic-review,giga-nebula,0 17 * * 5,Weekly Strategic Review,"Weekly: review all consolidated reports, analyze business ideas, projects, plans, and tasks, evaluate ROI and risk, and summarize the business status and provide recommendations to the founder.",inactive
+st-028,singularity-weekly-report-housekeeping,singularity-nebula,0 18 * * 5,Consolidate Reports,"Weekly: archive superseded reports to output/archive and keep output/report tidy.",inactive
