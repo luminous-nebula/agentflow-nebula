@@ -58,7 +58,7 @@ docs/          user guide and reference
 5. **Confirm batch changes.** Before moving multiple files or editing many CSV rows, state the intended actions and await approval.
 6. **One source of truth.** Do not duplicate a fact across a table and a file.
 7. **Write Permissions (task.csv).** Only the Dispatcher (Mensa Nebula) or Orchestrator (Singularity Nebula) may write to `database/project/task.csv`. Production personas must READ this file or `dispatch.csv`, and report progress via execution reports. Mensa handles the centralized state updates.
-
+8. **Asynchronous / Scheduled Execution.** When running as a scheduled background task, you are in **non-blocking mode**. Do NOT stop the process to use interactive tools (like ask_question), request permissions, or await approval. Log all questions, ambiguities, or pending approvals clearly in your final output report (`output/report/`) and terminate your cycle successfully.
 ## 5. Standard workflows
 
 Defined in `instruction/workflow.md`: housekeeping, report consolidation, the task

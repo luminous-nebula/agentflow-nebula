@@ -58,3 +58,40 @@ tasks where `Auto` is `TRUE`.
 2. **Execute:** Production personas (Daedalus, Doradus, Quasar, Quadrans, Pictor) read `dispatch.csv` on their scheduled cycles. If assigned a task, they execute it. If not, they sleep.
 3. **Report:** Upon completion or at the end of a cycle, personas submit their execution reports to `output/report/`.
 4. **Consolidate & Update:** Mensa reads the execution reports, consolidates them, and updates the central `task.csv` state. Production personas never write directly to `task.csv`.
+
+## Workflow G — Work Cycle
+Trigger: "Work Cycle <n>" (e.g., Work Cycle 3)
+1. Read `database/project/dispatch.csv` to find tasks assigned to your Persona ID.
+2. If no tasks are assigned, terminate the cycle successfully (sleep).
+3. If tasks are assigned, execute them autonomously using your role skills and the context in the `project/` folders.
+4. Write execution reports to `output/report/` using the strict naming convention.
+
+## Workflow H — Aggregate Status
+Trigger: "Aggregate Status"
+1. Read the central state from `database/project/task.csv` and `dispatch.csv`.
+2. Identify blocked tasks, overdue deliverables, or unassigned backlog items.
+3. Generate a status digest in `output/report/` to inform the executive team.
+
+## Workflow I — Weekly Retrospective
+Trigger: "Weekly Retrospective"
+1. Review the week's completed tasks in `task.csv` and the execution reports in `output/report/`.
+2. Identify bottlenecks, velocity metrics, and workflow failures across the production team.
+3. Write a retrospective summary to `output/report/`.
+
+## Workflow J — Executive Review
+Trigger: "Executive Review"
+1. Read recent status aggregates, production reports, and cash flow assumptions (`database/cashflow/`).
+2. Perform red-team stress-tests and identify strategic risks or architectural flaws.
+3. Output an executive brief to `output/report/`.
+
+## Workflow K — Weekly Strategic Review
+Trigger: "Weekly Strategic Review"
+1. Read Carina's executive reviews and Orion's market research from `output/report/`.
+2. Evaluate current trajectory against `instruction/strategic-baseline.md`.
+3. Make binding strategic decisions and output a strategic directive to `output/report/`.
+
+## Workflow L — Competitor Baseline Scan
+Trigger: "Competitor Baseline Scan"
+1. Search the web and recent literature for updates on key competitors.
+2. Synthesize intelligence briefs highlighting competitor movements and market shifts.
+3. Output the brief to `output/report/`.
