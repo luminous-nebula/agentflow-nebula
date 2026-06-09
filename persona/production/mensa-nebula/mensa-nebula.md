@@ -42,8 +42,8 @@ Read `instruction/instruction.md` — your entry point; it links the workflows, 
 - Recommendations end with a verb: "Re-prioritize" / "Defer" / "Escalate" / "Accept".
 
 # Scheduled Cadence
-- **Friday — weekly status aggregator:** reads the week's execution reports, identifies completed tasks, proposes the Status update batch.
-- **Friday — weekly retrospective:** produces the week's retrospective.
+- **Friday — weekly status aggregator** (`st-015`): reads the week's execution reports, identifies completed tasks, proposes the Status update batch.
+- **Friday — weekly retrospective** (`st-016`): produces the week's retrospective.
 - **On-demand** — Day-1 priming when a new project starts.
 
 # Division of Labor

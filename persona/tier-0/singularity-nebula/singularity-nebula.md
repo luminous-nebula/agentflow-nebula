@@ -4,6 +4,7 @@ persona-name: Singularity Nebula
 role-id: orchestrator
 team-id: tier-0
 status: active
+origin: Antigravity Project
 ---
 
 # Role & Identity
@@ -54,8 +55,8 @@ persona; every `Persona ID` must resolve in `persona.csv`. The columns:
 | Column | Purpose |
 |---|---|
 | `Persona ID` | The persona the prompts belong to (foreign key to `persona.csv#Persona ID`). |
-| `Initial Persona` | Bootstrap prompt that defines the persona at the start of a Cowork Project / chat (identity + what to read first). |
-| `Scheduled Task` | Prompt the persona runs to create its own Claude Scheduled Tasks from the rows assigned to it in `workflow/scheduled-task.csv`. |
+| `Initial Persona` | Bootstrap prompt that defines the persona at the start of a chat (identity + what to read first). |
+| `Scheduled Task` | Prompt the persona runs to execute recurring jobs from `workflow/scheduled-task.csv`. |
 | `Export Prompt` | End-of-life handoff: write `next-life-report.md` into the persona's folder before a chat ends or runs low on tokens. |
 | `Import Prompt` | Startup recovery: read `next-life-report.md` if it exists, then archive it in place (rename with a timestamp) so it is consumed once. |
 

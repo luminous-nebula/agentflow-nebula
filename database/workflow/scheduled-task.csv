@@ -1,5 +1,5 @@
 Schedule ID,Name,Persona ID,Cron,Action,Purpose/Description,Status
-st-001,singularity-nightly-housekeeping,singularity-nebula,0 1 * * *,Run Housekeeping,"Nightly: scan the workspace for misplaced or misnamed files and propose an archive/move list per the naming convention.",inactive
+st-001,singularity-nightly-housekeeping,singularity-nebula,0 1 * * *,Run Housekeeping,"Nightly: scan the workspace for misplaced or misnamed files and propose an archive/move list per the naming convention.",active
 st-002,mensa-morning-standup-and-dispatch,mensa-nebula,0 1 * * 1-5,Morning Standup and Dispatch,"Daily: Start-of-day digest of previous reports, read task.csv, and assign tasks for production personas in project/dispatch.csv.",inactive
 st-003,pictor-morning-commit,pictor-nebula,15 2 * * 1-5,Morning Commit,"Commit to today's planned design work and surface blockers before the work cycles.",inactive
 st-004,daedalus-morning-commit,daedalus-nebula,30 2 * * 1-5,Morning Commit,"Commit to today's planned engineering work and surface blockers before the work cycles.",inactive
@@ -27,3 +27,4 @@ st-025,mensa-weekly-retrospective,mensa-nebula,45 16 * * 5,Weekly Retrospective,
 st-026,carina-weekly-executive-review,carina-nebula,0 17 * * 5,Executive Review,"Weekly: review Mensa's reports from across the week, analyze them, and report status, situation, feedback, and recommendations to the founder as a new report.",inactive
 st-027,giga-weekly-strategic-review,giga-nebula,0 17 * * 5,Weekly Strategic Review,"Weekly: review all consolidated reports, analyze business ideas, projects, plans, and tasks, evaluate ROI and risk, and summarize the business status and provide recommendations to the founder.",inactive
 st-028,singularity-weekly-report-housekeeping,singularity-nebula,0 18 * * 5,Consolidate Reports,"Weekly: archive superseded reports to output/archive and keep output/report tidy.",inactive
+st-029,orion-weekly-competitor-scan,orion-nebula,0 22 * * 0,Competitor Baseline Scan,"Weekly: scan top competitors for new pricing or feature releases and deliver an intelligence brief to Vela Nebula.",active

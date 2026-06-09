@@ -57,6 +57,7 @@ docs/          user guide and reference
 4. **Non-destructive.** Never hard-delete. Move superseded files to `output/archive/` with a `YYYY-MM-DD_` prefix.
 5. **Confirm batch changes.** Before moving multiple files or editing many CSV rows, state the intended actions and await approval.
 6. **One source of truth.** Do not duplicate a fact across a table and a file.
+7. **Write Permissions (task.csv).** Only the Dispatcher (Mensa Nebula) or Orchestrator (Singularity Nebula) may write to `database/project/task.csv`. Production personas must READ this file or `dispatch.csv`, and report progress via execution reports. Mensa handles the centralized state updates.
 
 ## 5. Standard workflows
 
@@ -65,9 +66,9 @@ lifecycle, and adding a persona or project.
 
 ## 6. Strategic context
 
-For the current strategic decisions that govern the work, read
-`instruction/strategic-baseline.md`. Superseded and historical decisions are recorded in
-`instruction/decision-history.md`.
+For the current strategic decisions that govern the work (business shape, product
+sequencing, billing, capacity), read `instruction/strategic-baseline.md`. Superseded and
+historical decisions are recorded in `instruction/decision-history.md`.
 
 ## 7. Life handoff — continuity across chats
 
@@ -85,3 +86,14 @@ own folder:
    `next-life-report.md`. If it exists, read it first to recover context, then archive it in
    place by renaming to `next-life-report.<YYYY-MM-DD-HHMM>.md` so it is not consumed twice.
    Use your `Import Prompt`. If it does not exist, proceed normally.
+
+The report is the bridge between lives — it makes a persona resilient to chat resets and to
+changes in its own markdown or folder location.
+
+## 8. Template Sync Policy
+
+When syncing updates from a live working instance back to the canonical template repository, strict segregation between core mechanics and instance data must be maintained:
+
+1. **Core System (SYNC APPROVED):** Changes to rules, workflows, `schema.json`, persona definitions (both markdown and `persona.csv`/`role.csv`), prompt helpers, and structural guidelines must be synced to the template.
+2. **Instance Data (DO NOT SYNC):** Live business data—such as tasks (`task.csv`), projects (`project.csv`), local configurations (`config.csv`), cash flow assumptions, and `output/` logs/reports—must never be copied to the template to ensure it remains a pristine, reusable scaffold.
+3. **Path Portability:** All paths in the template must use dynamic placeholders (`<base-path>`, `<source-code-path>`) resolved at runtime via `config.csv` rather than hardcoded absolute paths.

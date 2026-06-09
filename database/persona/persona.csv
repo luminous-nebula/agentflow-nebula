@@ -1,11 +1,13 @@
 Persona ID,Persona Name,Role ID,Team ID,Status,Origin,Persona File
-singularity-nebula,Singularity Nebula,orchestrator,tier-0,active,Claude Cowork Project,persona/tier-0/singularity-nebula/singularity-nebula.md
+singularity-nebula,Singularity Nebula,orchestrator,tier-0,active,Antigravity Project,persona/tier-0/singularity-nebula/singularity-nebula.md
 giga-nebula,Giga Nebula,executive-consultant,executive,active,Antigravity Project,persona/executive/giga-nebula/giga-nebula.md
 carina-nebula,Carina Nebula,executive-consultant,executive,active,Claude Cowork Project,persona/executive/carina-nebula/carina-nebula.md
-vela-nebula,Vela Nebula,gtm-advisor,executive,active,Claude Cowork Project,persona/executive/vela-nebula/vela-nebula.md
+vela-nebula,Vela Nebula,gtm-advisor,revenue,active,Claude Cowork Project,persona/revenue/vela-nebula/vela-nebula.md
+orion-nebula,Orion Nebula,market-researcher,revenue,active,Antigravity Project,persona/revenue/orion-nebula/orion-nebula.md
 mensa-nebula,Mensa Nebula,engineering-manager,production,active,Claude Cowork Project,persona/production/mensa-nebula/mensa-nebula.md
 pictor-nebula,Pictor Nebula,product-designer,production,active,Claude Cowork Project,persona/production/pictor-nebula/pictor-nebula.md
 daedalus-nebula,Daedalus Nebula,software-engineer,production,active,Claude Cowork Project,persona/production/daedalus-nebula/daedalus-nebula.md
-doradus-nebula,Doradus Nebula,code-reviewer,production,active,Claude Cowork Project,persona/production/doradus-nebula/doradus-nebula.md
-quasar-nebula,Quasar Nebula,qa-engineer,production,active,Claude Cowork Project,persona/production/quasar-nebula/quasar-nebula.md
+doradus-nebula,Doradus Nebula,code-reviewer,production,active,Antigravity Project,persona/production/doradus-nebula/doradus-nebula.md
+quasar-nebula,Quasar Nebula,qa-engineer,production,active,Antigravity Project,persona/production/quasar-nebula/quasar-nebula.md
 quadrans-nebula,Quadrans Nebula,automation-engineer,production,active,Claude Cowork Project,persona/production/quadrans-nebula/quadrans-nebula.md
+chronos-nebula,Chronos Nebula,devops-engineer,production,active,Antigravity Project,persona/production/chronos-nebula/chronos-nebula.md

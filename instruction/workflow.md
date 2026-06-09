@@ -52,3 +52,9 @@ tasks where `Auto` is `TRUE`.
 1. Append a row to `project/project.csv` with a `Project ID` (`PD<NN>`) and `Project Folder` = `project/<project-id>`.
 2. Create `project/<project-id>/` with a `project.md` brief.
 3. Add phases to `phase.csv`, then tasks to `task.csv`.
+
+## Workflow F — Dispatch & Execution
+1. **Plan & Assign:** The Dispatcher (Mensa) reads `task.csv` to determine today's goals. Mensa assigns these tasks by writing to `database/project/dispatch.csv`.
+2. **Execute:** Production personas (Daedalus, Doradus, Quasar, Quadrans, Pictor) read `dispatch.csv` on their scheduled cycles. If assigned a task, they execute it. If not, they sleep.
+3. **Report:** Upon completion or at the end of a cycle, personas submit their execution reports to `output/report/`.
+4. **Consolidate & Update:** Mensa reads the execution reports, consolidates them, and updates the central `task.csv` state. Production personas never write directly to `task.csv`.
