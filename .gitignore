@@ -1,0 +1,12 @@
+# runtime output
+output/log/
+output/report/
+# keep the folders themselves
+!output/log/.gitkeep
+!output/report/.gitkeep
+
+# os / editor cruft
+desktop.ini
+*desktop.ini
+.DS_Store
+Thumbs.db
