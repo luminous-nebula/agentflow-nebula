@@ -3,6 +3,8 @@ name: sales-lead
 description: Sales pipeline, growth, and customer discovery.
 ---
 
+> **Held by:** Sirius Nebula (sales-lead).
+
 # Role Skill: Sales & Growth
 
 Use when a revenue persona runs sales or customer discovery.

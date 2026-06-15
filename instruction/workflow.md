@@ -13,29 +13,27 @@ Trigger: "Run Housekeeping".
 
 ## Workflow B — Consolidate Reports
 Trigger: "Consolidate Reports".
-1. Read recent persona outputs from `output/report/` and from each `task.csv#output-ref`.
+1. Read recent persona outputs from `output/report/` (and any deliverables under `project/<project-id>/`).
 2. Synthesize one master markdown summary in `output/report/`.
 3. Propose archiving the raw source reports to `output/archive/`. Await approval.
 
 ## Report file naming
-Every markdown report written to `output/report/` uses this filename format:
+Markdown reports written to `output/report/` follow the report-file format defined in
+`naming-convention.md` (single source):
 
 ```
-<YYYY>-<MM>-<DD> <HH><MI> <persona-id> report.md
+<YYYY>-<MM>-<DD> <HHMM> <persona-id> <kebab-topic>.md
+2026-06-10 1332 carina-nebula bug-management-proposal.md
 ```
 
-- `<YYYY>-<MM>-<DD>` — ISO date; `<HH><MI>` — 24-hour time with no separator (e.g. `1430`).
-- `<persona-id>` — the author persona's `Persona ID` from `persona.csv` (e.g. `carina-nebula`).
-- Example: `2026-06-06 1430 carina-nebula report.md`.
-
-This is a report-specific convention — it uses spaces and a time component and is an
-intentional exception to the kebab-case file rule in `naming-convention.md`. When a newer
-report supersedes an earlier one, archive the old file to `output/archive/` (Workflow A).
+Use `report` as the topic when there is no specific subject. When a newer report supersedes
+an earlier one, archive the old file to `output/archive/` (Workflow A).
 
 ## Workflow C — Task lifecycle
-1. Plan: add a row to `task.csv` with a new `Task ID` (`PH<NN>-PD<NN>-T<NNNN>`), plus its `Project ID`, `Phase ID`, a `Description`, its estimated `Hours`, and the `Auto` flag (see "Auto flag" below).
+1. Plan: add a row to `task.csv` with a new `Task ID` (`PH<NN>-PD<NN>-T<NNNN>`), plus its `Project ID`, `Phase ID`, a `Description`, its estimated `Hours`, the `Auto` flag (see "Auto flag" below), and a `Task Type` (`Feature` / `Bug` / `Chore` / `Tech Debt`; default `Feature`).
 2. Status flows through the values in `config/task-status.csv`: `backlog -> planned -> in-progress -> blocked? -> review -> done -> archived`.
 3. Only statuses listed in `task-status.csv` are valid.
+4. Dates (actuals): Mensa stamps `Date Started` (ISO) when a task first enters `in-progress`, and `Date Completed` when it reaches `done`. These actuals pair with `task-plan.csv`'s planned dates for plan-vs-actual velocity in the weekly retrospective.
 
 ### Auto flag
 The `Auto` column in `task.csv` marks whether a task can be executed by an AI persona.
@@ -81,12 +79,12 @@ Trigger: "Weekly Retrospective"
 ## Workflow J — Executive Review
 Trigger: "Executive Review"
 1. Read recent status aggregates, production reports, and cash flow assumptions (`database/cashflow/`).
-2. Perform red-team stress-tests and identify strategic risks or architectural flaws.
+2. Perform executive stress-tests and identify strategic risks or architectural flaws.
 3. Output an executive brief to `output/report/`.
 
 ## Workflow K — Weekly Strategic Review
 Trigger: "Weekly Strategic Review"
-1. Read Carina's executive reviews and Orion's market research from `output/report/`.
+1. Read Carina's executive reviews and any market-research / GTM reports in `output/report/`.
 2. Evaluate current trajectory against `instruction/strategic-baseline.md`.
 3. Make binding strategic decisions and output a strategic directive to `output/report/`.
 
@@ -95,3 +93,39 @@ Trigger: "Competitor Baseline Scan"
 1. Search the web and recent literature for updates on key competitors.
 2. Synthesize intelligence briefs highlighting competitor movements and market shifts.
 3. Output the brief to `output/report/`.
+
+## Workflow M — Bug lifecycle
+Defects are tracked in `database/project/bug.csv` (owned by Quasar), separate from the dispatch queue. The fix *work* is a normal `task.csv` row tagged `Task Type = Bug` — so **Mensa always dispatches from `task.csv` only; `bug.csv` is never read in the dispatch loop**.
+1. **Report:** anyone (Quasar, Doradus, Daedalus mid-build, or the founder) raises a defect via an execution report; Quasar curates it into `bug.csv` with `Status = new`.
+2. **Triage:** Quasar (with Mensa at standup) assigns `Severity` (`config/bug-severity.csv`) and accepts -> `Status = triaged` (or `duplicate` / `wont-fix` / `cannot-reproduce`).
+3. **Dispatch:** Mensa creates a fix-task in `task.csv` (`Task Type = Bug`), records its `Task ID` in the bug's `Fix Task ID`, and assigns it via `dispatch.csv` like any task.
+4. **Fix -> Review -> Verify:** Daedalus fixes (bug `in-progress`) -> Doradus reviews the PR (`in-review`) -> Quasar verifies the defect no longer reproduces (`verifying`).
+5. **Close:** Quasar sets `Date Resolved` and `Status = done`.
+
+**Quality gate:** a phase may not move to `done` (or launch) while any `S1` or `S2` bug against it is open. Quasar enforces this at release sign-off.
+
+## Workflow N — Content Cycle
+Trigger: "Content Cycle" (Pulsar, marketing-lead).
+1. Read `strategic-baseline.md` and Vela's positioning/ICP; read the active product stage from `project.csv`.
+2. Produce and publish the planned content in brand voice — Lumino Newsletter issue, launch posts, social, SEO pages — each mapped to a funnel stage.
+3. Hand qualified prospects to Sirius; log published items and engagement (reach -> signups -> qualified) and write a content report to `output/report/`.
+Guardrails: no unsubstantiated claims, no fabricated quotes; positioning comes from Vela, not invented here.
+
+## Workflow O — Outreach Cycle
+Trigger: "Outreach Cycle" (Sirius, sales-lead).
+1. Prioritize prospects and design partners per Vela's ICP and channel picks; take warm leads from Pulsar. Prefer warm + marketplace over cold.
+2. Run outreach and book/prep discovery conversations; bring deals that need signing or payment to the founder.
+3. Capture every prospect/customer signal (objections, feature asks, pricing reactions) into a structured feedback log for Vela; report pipeline commitments (paid pilots, signed deals — not vanity) to `output/report/`.
+
+## Workflow P — Demand & Feedback Synthesis
+Trigger: "Demand & Feedback Synthesis" (Vela, gtm-advisor). Cadence: monthly pre-launch; weekly once a product is live; back to monthly at steady state.
+1. Read Orion's competitor/market briefs, Sirius's prospect/customer feedback log, product analytics (PostHog), and any churn/support signals.
+2. Synthesize into themes; weigh them against `strategic-baseline.md` and the cashflow's demand assumptions (`database/cashflow/`).
+3. Write a **Direction & Feature Recommendation** report to the founder in `output/report/`: what to adjust in positioning, pricing, roadmap/features, and channels — each tied to evidence and the decision it informs. Flag anything that should change build priority (`project.csv`) or kill/keep a product.
+
+## Workflow Q — Design Gate (ADR)
+Runs **before** a phase's build tasks start, for any phase that introduces a new service, data model, external integration, or security/trust boundary. Pure scaffold/config/launch phases may skip with a one-line note in the dispatch. (A dedicated architecture persona is planned once PD02 Lumino Sentinel begins; until then design is authored by the engineer and gated by review.)
+1. **Author (Daedalus):** write a short, one-page ADR under `project/<project-id>/adr/<NNNN>-<kebab-title>.md` — context, the decision, options considered, trade-offs, and impact on the shared chassis.
+2. **Review (Doradus):** review the ADR for correctness, security, and consistency with existing decisions *before any code is written*.
+3. **Executive review (Carina):** for significant calls — tech selection, security/zero-egress boundaries, cross-product chassis, or anything that moves the cashflow's cost/timeline — Carina critiques the ADR and names the failure points.
+4. **Gate:** the phase's build tasks stay `blocked` until the ADR is accepted; record the accepted ADR path in the phase's first build task (or its dispatch instructions). Superseded ADRs are archived per Workflow A; durable architecture conclusions roll up into `instruction/decision-history.md`.

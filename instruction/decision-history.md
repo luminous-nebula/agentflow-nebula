@@ -23,7 +23,7 @@ Listed newest-first within each group. Status notes indicate what is current vs 
 - **Sequenced build plan.** Shared chassis once → Sentinel → JUnit Forge → Full Forge with go/no-go gates. *Status: adopted; hours superseded by 40-hr rebaseline.*
 
 ### Cash-flow model lineage (each supersedes the prior)
-- **v2 pure product — current direction.** Services removed. Break-even ~W11-12; W30 cumulative ~$45.6K / MRR ~$19.2K; max drawdown ~$450. *(Numbers later refined in v3→v5; latest model is `luminous_nebula_cashflow_v5.xlsx` in `archived`.)*
+- **v2 pure product.** Services removed. Break-even ~W11-12; W30 cumulative ~$45.6K / MRR ~$19.2K; max drawdown ~$450. *(Historical. Superseded by v3→v5; the canonical live model is now `database/cashflow/` (transposed CSV) + `database/cashflow/Lumino-cashflow-model.xlsx` — current P40 plan: break-even ~W22, drawdown ~$1.06K incl. LLM costs.)*
 - **v1 services-funded.** 30 wks. W30 cumulative ~$197.6K / MRR ~$23.4K. *Status: superseded by v2.*
 
 ### Channels & GTM
@@ -37,6 +37,6 @@ Listed newest-first within each group. Status notes indicate what is current vs 
 ## Supersession map (quick reference)
 
 - **Architecture:** founding baseline → rebutted by executive red-team → timeline updated by 40-hr rebaseline.
-- **Cash-flow:** v1 (services) → **v2 (pure product, chosen)** → v3 → v4/v4.1 → v5 (Paddle).
+- **Cash-flow:** v1 (services) → v2 (pure product) → v3 → v4/v4.1 → v5 (Paddle) → **P40 plan (current, in `database/cashflow/`)**.
 - **Strategy:** services-funded "Strategy B" → reversed by v2 pure-product. Channels report assumes services still exist — read with that caveat.
 - **Naming:** anything before 2026-05-29 uses old product names; the rename memo is authoritative.

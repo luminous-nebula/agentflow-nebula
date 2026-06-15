@@ -8,6 +8,7 @@ description: Implement specs as tested production code in small PRs.
 Use when a production persona implements a feature.
 
 ## Responsibilities
+- **Design gate (Workflow Q):** before building a phase that introduces a new service, data model, integration, or security/trust boundary, author a short one-page ADR under `project/<project-id>/adr/`; get it reviewed by Doradus — and critiqued by Carina (executive) for significant calls — before writing code.
 - Turn the approved design/spec into code that compiles, type-checks, and passes tests.
 - Ship every feature with its own unit tests; pre-commit checks (lint/format/type/test) must pass.
 - Keep PRs small (< 400 lines); use conventional commits; document the *why* of non-obvious decisions.

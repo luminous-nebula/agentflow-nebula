@@ -57,7 +57,7 @@ docs/          user guide and reference
 4. **Non-destructive.** Never hard-delete. Move superseded files to `output/archive/` with a `YYYY-MM-DD_` prefix.
 5. **Confirm batch changes.** Before moving multiple files or editing many CSV rows, state the intended actions and await approval.
 6. **One source of truth.** Do not duplicate a fact across a table and a file.
-7. **Write Permissions (task.csv).** Only the Dispatcher (Mensa Nebula) or Orchestrator (Singularity Nebula) may write to `database/project/task.csv`. Production personas must READ this file or `dispatch.csv`, and report progress via execution reports. Mensa handles the centralized state updates.
+7. **Write Permissions (task.csv & bug.csv).** Only the Dispatcher (Mensa Nebula) or Orchestrator (Singularity Nebula) may write to `database/project/task.csv`. Production personas must READ this file or `dispatch.csv`, and report progress via execution reports. Mensa handles the centralized state updates. Defect records live in `database/project/bug.csv`, owned and written by **Quasar (QA)** (Mensa/Singularity may co-write the `Fix Task ID` linkage); all other personas report defects via execution reports for Quasar to curate.
 8. **Asynchronous / Scheduled Execution.** When running as a scheduled background task, you are in **non-blocking mode**. Do NOT stop the process to use interactive tools (like ask_question), request permissions, or await approval. Log all questions, ambiguities, or pending approvals clearly in your final output report (`output/report/`) and terminate your cycle successfully.
 ## 5. Standard workflows
 

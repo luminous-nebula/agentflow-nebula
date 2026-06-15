@@ -3,6 +3,8 @@ name: brand-lead
 description: Brand identity, messaging, and creative direction.
 ---
 
+> **Status: planned role — currently folded into marketing-lead (Pulsar Nebula); no dedicated persona yet.**
+
 # Role Skill: Brand & Creative
 
 Use when a revenue persona sets brand identity or creative direction.

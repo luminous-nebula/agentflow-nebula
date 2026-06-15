@@ -54,13 +54,38 @@ YYYY-MM-DD_<kebab-name>[-v<n>].<ext>
 - `_` separates the date from the descriptive name; the name itself stays kebab-case.
 - Optional `-v<n>` suffix for explicit versions.
 
+## Report files (`output/report/`)
+Markdown reports use date + time + author + topic. The time disambiguates same-day
+reports; the topic keeps them legible at a glance. This is the **single source** for
+report naming — `workflow.md` links here.
+
+```
+<YYYY>-<MM>-<DD> <HHMM> <persona-id> <kebab-topic>.md
+2026-06-10 1332 carina-nebula bug-management-proposal.md
+```
+
+- `<HHMM>` — 24-hour local time (timezone from `config/config.csv`), no separator.
+- `<persona-id>` — the author's `Persona ID` from `persona.csv` (e.g. `carina-nebula`).
+- `<kebab-topic>` — short kebab-case subject; use `report` when there is no specific topic.
+- Intentional exception to the core kebab-case rule (uses spaces and a time component).
+
+## Architecture Decision Records (ADRs)
+ADRs live under the owning project and use a sequential 4-digit number per project:
+
+```
+project/<project-id>/adr/<NNNN>-<kebab-title>.md
+project/PD02/adr/0001-ephemeral-sandbox-runtime.md
+```
+
+- `<NNNN>` increments per project (`0001`, `0002`, …); the title stays kebab-case. See Workflow Q.
+
 ## Archiving
 Superseded files move to `output/archive/` keeping (or gaining) the `YYYY-MM-DD_`
 prefix of the date they were archived. Never delete.
 
 ## IDs
 Most `* ID` cell values are kebab-case and unique within their table. Short sequential
-ids use a prefix: `ph-001` (prompt-helper), `st-001` (scheduled-task).
+ids use a prefix: `ph-001` (prompt-helper). These are **stable keys** — assigned once and never renumbered when rows are reordered, the same rule as Project/Phase/Task IDs. `scheduled-task.csv` instead uses a descriptive kebab-case `Schedule ID` (e.g. `mensa-weekly-retrospective`), which is likewise unaffected by reordering.
 
 ### Project, phase, and task IDs (uppercase running numbers)
 These three tables use fixed-width uppercase IDs — an exception to kebab-case — so a Task

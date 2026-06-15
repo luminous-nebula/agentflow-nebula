@@ -3,6 +3,8 @@ name: marketing-lead
 description: Market research, demand generation, and campaign planning.
 ---
 
+> **Held by:** Pulsar Nebula (marketing-lead). Brand & Creative (`brand-lead`) is currently folded into this seat.
+
 # Role Skill: Marketing & Market Research
 
 Use when a revenue persona runs market research or plans campaigns.
