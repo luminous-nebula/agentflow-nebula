@@ -52,10 +52,12 @@ tasks where `Auto` is `TRUE`.
 3. Add phases to `phase.csv`, then tasks to `task.csv`.
 
 ## Workflow F — Dispatch & Execution
-1. **Plan & Assign:** The Dispatcher (Mensa) reads `task.csv` to determine today's goals. Mensa assigns these tasks by writing to `database/project/dispatch.csv`.
-2. **Execute:** Production personas (Daedalus, Doradus, Quasar, Quadrans, Pictor) read `dispatch.csv` on their scheduled cycles. If assigned a task, they execute it. If not, they sleep.
-3. **Report:** Upon completion or at the end of a cycle, personas submit their execution reports to `output/report/`.
-4. **Consolidate & Update:** Mensa reads the execution reports, consolidates them, and updates the central `task.csv` state. Production personas never write directly to `task.csv`.
+Trigger: "Cycle Planning & Dispatch" — Mensa, weekdays before each work cycle. Exact run times live in `database/workflow/scheduled-task.csv` (the source of truth), not here. The legacy per-persona "Morning Commit" step has been removed; blockers are surfaced at the start of each work cycle instead.
+1. **Triage & Create:** At each cycle-planning session, Mensa reads new execution reports, architect/QA handoffs, and bug reports in `output/report/` and creates any required tickets in `task.csv` (new `Task ID`, `Task Type`, `Hours`, `Auto`, and dependencies noted in the description / `blocked` status) before assigning. Only Mensa or Singularity write `task.csv`; this is the single place tickets are created — no separate scheduled task.
+2. **Plan & Assign:** Mensa reads `task.csv` to determine today's goals and assigns them by writing to `database/project/dispatch.csv`, stamping each row with the current `Cycle No` (1, 2, or 3 — which of the day's three cycle-planning sessions is running).
+3. **Execute:** Production personas (Daedalus, Doradus, Quasar, Quadrans, Pictor, Chronos, Cygnus) read `dispatch.csv` on their scheduled cycles. If assigned a task, they execute it. If not, they sleep.
+4. **Report:** Upon completion or at the end of a cycle, personas submit their execution reports to `output/report/`.
+5. **Consolidate & Update:** Mensa reads the execution reports, consolidates them, and updates the central `task.csv` state. Production personas never write directly to `task.csv`.
 
 ## Workflow G — Work Cycle
 Trigger: "Work Cycle <n>" (e.g., Work Cycle 3)
