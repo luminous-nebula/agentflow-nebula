@@ -18,16 +18,9 @@ Trigger: "Consolidate Reports".
 3. Propose archiving the raw source reports to `output/archive/`. Await approval.
 
 ## Report file naming
-Markdown reports written to `output/report/` follow the report-file format defined in
-`naming-convention.md` (single source):
+Markdown reports written to `output/report/` MUST strictly follow the format defined in `naming-convention.md` (the single source of truth).
 
-```
-<YYYY>-<MM>-<DD> <HHMM> <persona-id> <kebab-topic>.md
-2026-06-10 1332 carina-nebula bug-management-proposal.md
-```
-
-Use `report` as the topic when there is no specific subject. When a newer report supersedes
-an earlier one, archive the old file to `output/archive/` (Workflow A).
+Use `report` as the topic when there is no specific subject. When a newer report supersedes an earlier one, archive the old file to `output/archive/` (Workflow A).
 
 ## Workflow C — Task lifecycle
 1. Plan: add a row to `task.csv` with a new `Task ID` (`PH<NN>-PD<NN>-T<NNNN>`), plus its `Project ID`, `Phase ID`, a `Description`, its estimated `Hours`, the `Auto` flag (see "Auto flag" below), and a `Task Type` (`Feature` / `Bug` / `Chore` / `Tech Debt`; default `Feature`).
