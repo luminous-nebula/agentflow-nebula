@@ -25,7 +25,7 @@ edit the markdown and update the CSV reference if the path changed.
 
 Defined in full by `database/schema.json`. The ones you will use most:
 
-- `database/config/config.csv` — project name, base path, source-code path, timezone.
+- `database/config/config.csv` — project name, base path, source-code path, timezone, and **workflow-name** (determines which operational ruleset you follow).
 - `database/persona/team.csv` — the four functional tiers: `tier-0`, `executive`, `revenue`, `production`.
 - `database/persona/role.csv` — roles and the team each belongs to.
 - `database/persona/persona.csv` — the roster. The `Persona File` column tells you where each persona's identity markdown is.
@@ -45,7 +45,7 @@ database/      structured source of truth (CSV)   -> see schema.json
 instruction/   process & identity source of truth (markdown)
 persona/       one folder per persona, grouped by functional tier
 project/       per-project working folders and deliverables
-output/        report/ (consolidated), log/, archive/ (dated, superseded files)
+output/        report/ (subfolders: tier-0/, executive/, revenue/, production/, request/), log/, archive/
 docs/          user guide and reference
 ```
 
@@ -83,8 +83,9 @@ own folder:
    the first one to three actions the next life should take. Use your `Export Prompt` from
    `prompt-helper.csv`.
 2. **On startup:** after loading this file and your role SKILL, check your own folder for
-   `next-life-report.md`. If it exists, read it first to recover context, then archive it in
-   place by renaming to `next-life-report.<YYYY-MM-DD-HHMM>.md` so it is not consumed twice.
+   `next-life-report.md`. If it exists, read it first to recover context, then create an 'archive' 
+   subfolder in your persona folder (if it doesn't exist) and move the report into it, renaming 
+   it to `next-life-report.<YYYY-MM-DD-HHMM>.md` so it is not consumed twice.
    Use your `Import Prompt`. If it does not exist, proceed normally.
 
 The report is the bridge between lives — it makes a persona resilient to chat resets and to
