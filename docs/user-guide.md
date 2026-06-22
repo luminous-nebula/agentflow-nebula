@@ -65,7 +65,7 @@ agentflow-nebula/
 │   └── role/                  role "skills": installer, manager, executive-consultant
 ├── persona/                   one folder per persona, by functional tier
 │   ├── tier-0/                singularity-nebula
-│   ├── c-level/               giga-nebula (CEO), carina-nebula (CFO)
+│   ├── executive/             giga-nebula, carina-nebula, vela-nebula
 │   ├── revenue/               marketing, brand, sales personas
 │   └── production/            engineering, operations personas
 ├── project/                   per-project working folders + deliverables
@@ -108,7 +108,7 @@ Teams are **functional tiers** (not Red/Blue squads):
 | Tier (`team-id`) | Remit | Example personas |
 |---|---|---|
 | `tier-0` | Orchestration, architecture, housekeeping | singularity-nebula |
-| `c-level` | Executive leadership, financial planning | giga-nebula (CEO), carina-nebula (CFO) |
+| `executive` | Executive business consulting, strategy, financial planning | giga-nebula, carina-nebula, vela-nebula |
 | `revenue` | Marketing, brand, market research, sales, CS | mensa-, pictor-, quasar-nebula |
 | `production` | Engineering, software dev, QA, operations | doradus-, daedalus-nebula |
 
