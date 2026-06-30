@@ -123,6 +123,3 @@ row, and the persona folder and its `persona.csv` row are always added together.
 | Know the data model | `database/schema.json` |
 | Follow a workflow | `instruction/workflow.md` |
 | Get the naming rules | `instruction/naming-convention.md` |
-
----
-AgentFlow Nebula · v2.0.0
